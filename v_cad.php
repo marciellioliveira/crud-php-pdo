@@ -41,17 +41,4 @@
               ';
             }
 
-              if(strpos($_SERVER['REQUEST_URI'], '?')) {
-               
-                $resultado = $_GET['msg'];
-
-                if($resultado == 1) {
-                  echo "<h5>Cadastrado com sucesso</h5>";
-                 } else {
-               # echo "false";
-              }
-            
-          } #fecha strpos
-
-
 ?>

@@ -15,11 +15,11 @@
 		$textSQL="INSERT INTO clientes(nome,rg,sexo,estado_civil) VALUES ('".$nomeC."','".$rgC."','".$sexoC."','".$estado_civilC."')";
 		$res = $conn->exec($textSQL);
 
-		header('Location: cliente.php?msg='.$res);
+		header('Location: cliente.php?cad='.$res);
 
 	} catch (PDOException $e){
 
-		header('Location: cliente.php?msg='.$res);
+		header('Location: cliente.php?cad='.$res);
 
 		echo "Falha na gravação. Erro: ".getMessage();
 

@@ -34,10 +34,18 @@
 
             $pes="pesquisa.php";
 
-
-
             //View Cadastrar = v_cad.php
             include 'v_cad.php';
+            if(strpos($_SERVER['REQUEST_URI'], '?')) {
+               
+                $resultado = $_GET['cad'];
+
+                if($resultado == 1) {
+                  echo "<h5>Cadastrado com sucesso</h5>";
+                 } else {
+               # echo "false";
+              }
+            }
 
             //View Visualizar = v_vis.php
             include 'v_vis.php';
