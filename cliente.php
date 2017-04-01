@@ -23,90 +23,24 @@
 			  <div class="col-sm-4">
 
           <?php
+            
+            $pes="pesquisa.php";
 
-            $cad="cadastrar.php";
+            //View Cadastrar = v_cad.php
+            include 'v_cad.php';
 
-            include 'conexao.php';
+            //View Visualizar = v_vis.php
+            include 'v_vis.php';
 
-            if(isset($_POST['cadastrar'])) {
-              echo "<h4>Cadastrar<h4>";              
+            //View Alterar= v_alt.php
+            include 'v_alt.php';
 
-              echo '                
-                <form action="'.$cad.'" method="POST" name="teste">
-                  <div class="form-group">
-                    <h5>Nome:</h5>
-                    <input type="text" class="form-control" name="nome" id="nome">
-                  </div>
-                  <div class="form-group">
-                    <h5>RG:</h5>
-                    <input type="text" class="form-control" name="rg" id="rg">
-                  </div>
-                  <div class="form-group">                   
-                    <h5 for="sel1">Sexo:</h5>
-                    <select class="form-control" id="sel1" name="sexo">
-                      <option value="" disabled selected>Escolha</option>
-                      <option value="f">Feminino</option>
-                      <option value="m">Masculino</option>
-                    </select>
-                  </div>
-                  <div class="form-group">                   
-                    <h5 for="sel1">Estado Cívil:</h5>
-                    <select class="form-control" id="sel1" name="estado_civil">
-                      <option value="" disabled selected>Escolha</option>
-                      <option value="solteiro">Solteiro</option>
-                      <option value="casado">Casado</option>
-                      <option value="divorciado">Divorciado</option>
-                      <option value="viuvo">Viúvo</option>
-                      <option value="separado">Separado</option>
-                    </select>
-                  </div>                             
-                   <button type="submit"  class="btn btn-default">Cadastrar</button>  
-                  
-                </form>
-              ';
-            }
-
-              if(strpos($_SERVER['REQUEST_URI'], '?')) {
-                
-                $resultado = $_GET['msg'];
-
-                if($resultado == 1) {
-                  echo "<h5>Cadastrado com sucesso</h5>";
-                 }
-
-              } else {
-               # echo "false";
-              }
-
-
-            if(isset($_POST['visualizar'])) {
-              echo "<h4>Visualizar</h4>";
-
-             
-            }
-
-            if(isset($_POST['alterar'])) {
-              echo "<h4>Alterar</h4>";
-
-              
-            }
-
-            if(isset($_POST['deletar'])) {
-              echo "<h4>Deletar</h4>";
-
-             
-            }
-
-
-
-
-
+            //View Deletar = v_del.php
+            include 'v_del.php';
 
              # $teste=$_POST['crud'];
              # echo "<h1>".$teste."</h1>";
-
-         
-
+       
           ?>
         </div>
 
@@ -121,3 +55,9 @@
 </div>
 
 <?php include 'footer.php'; ?>
+
+<!-- 
+
+
+
+-->
