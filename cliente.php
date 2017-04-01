@@ -39,12 +39,15 @@
             include 'v_vis.php';
 
              if(strpos($_SERVER['REQUEST_URI'], '?')) {
-                
-              $idEscolhido = $_GET['esc'];
-              $dados=$conn->query("SELECT * FROM clientes WHERE id=".$idEscolhido); 
 
-              
+              $idEscolhido = $_GET['esc'];
+
+
+               $dados=$conn->query("SELECT * FROM clientes"); 
+              #$dados=$conn->query("SELECT * FROM clientes WHERE id=".$idEscolhido); 
+
               foreach ($dados as $linha) {
+
                 $nomeBD=$linha['nome'];
                 $rgBD=$linha['rg'];
                 $sexoBD=$linha['sexo'];
@@ -57,14 +60,16 @@
                  $sexoCom = "Masculino";
               }
 
-              echo "<h3>Nome: ".$nomeBD."</h3>";
-              echo "<h3>Rg: ".$rgBD."</h3>";
-              echo "<h3>Sexo: ".$sexoCom."</h3>";
-              echo "<h3>Estado Cívil: ".$est_civilBD."</h3>";
+              echo "<h4><strong>Nome:</strong> ".$nomeBD."</h4>";
+              echo "<h4><strong>Rg: </strong>".$rgBD."</h4>";
+              echo "<h4><strong>Sexo:</strong> ".$sexoCom."</h4>";
+              echo "<h4><strong>Estado Cívil:</strong>".$est_civilBD."</h4>";
+            
                
               } else {
                # echo "false";
-              }
+              } #esse else fecha o strpos
+
 
             //View Alterar= v_alt.php
             include 'v_alt.php';
