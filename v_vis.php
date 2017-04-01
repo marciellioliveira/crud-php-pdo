@@ -4,6 +4,7 @@
 
 	include 'conexao.php';
 	$dados=$conn->query("SELECT * FROM clientes");  
+	$dados->execute();
 
 	if(isset($_POST['visualizar'])) {
               echo "<h4>Visualizar</h4>";
@@ -20,9 +21,9 @@
                      		foreach($dados as $linha)
 						    {
 						    	$idCons=$linha['id'];
-						    	$nomeCons=$linha['nome'];
-						    	echo '<option value="'.$idCons.'">'.$nomeCons.'</option>';					    	
-							}						
+						    	$nomeCons=$linha['nome'];						    	
+						    	echo '<option value="'.$idCons.'">'.$nomeCons.'</option>';	
+							}		
 
 	           echo '</select>
                   </div>                             

@@ -42,38 +42,44 @@
             //View Visualizar = v_vis.php
             include 'v_vis.php';
 
-             if(strpos($_SERVER['REQUEST_URI'], '?')) {
+             if(strpos($_SERVER['REQUEST_URI'], '?')) {               
 
               $idEscolhido = $_GET['esc'];
 
-               $dados=$conn->query("SELECT * FROM clientes"); 
-
+              $dados=$conn->query("SELECT * FROM clientes WHERE id=".$idEscolhido);
               foreach ($dados as $linha) {
 
+                $idBD=$linha['id'];
                 $nomeBD=$linha['nome'];
                 $rgBD=$linha['rg'];
                 $sexoBD=$linha['sexo'];
                 $est_civilBD=$linha['estado_civil'];
-              }
-
-              if(($sexoBD == 'f') || ($sexoBD == 'F')) {
+              }              
+            
+              echo "<h4><strong>Nome:</strong> ".$nomeBD."</h4>";
+              echo "<h4><strong>Rg: </strong>".$rgBD."</h4>";
+               if(($sexoBD == 'f') || ($sexoBD == 'F')) {
                   $sexoCom = "Feminino";
               } else if(($sexoBD == 'm') || ($sexoBD == 'M')) {
                  $sexoCom = "Masculino";
               }
-
-              echo "<h4><strong>Nome:</strong> ".$nomeBD."</h4>";
-              echo "<h4><strong>Rg: </strong>".$rgBD."</h4>";
               echo "<h4><strong>Sexo:</strong> ".$sexoCom."</h4>";
               echo "<h4><strong>Estado Cívil:</strong>".$est_civilBD."</h4>";
+
             
                
               } else {
                # echo "false";
               } #esse else fecha o strpos do visualizar
 
+
+
+             
+
             //View Alterar= v_alt.php
             include 'v_alt.php';
+           
+
         
 
             //View Deletar = v_del.php
@@ -98,7 +104,12 @@
 <?php include 'footer.php'; ?>
 
 <!-- 
+  foreach ($dados as $linha) {
+                $nometeste=$linha['nome'];
 
+              }
+
+              echo $nometeste;
 
 
 -->

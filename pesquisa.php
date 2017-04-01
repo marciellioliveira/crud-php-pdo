@@ -8,12 +8,13 @@
 
 		$pes=$_POST['pesquisa'];
 
+
 		$count=0;
 		while ($pes > 0) {
 			
 			switch ($pes) {
 				
-				case $pes:
+				case $pes:				
 					header('Location:cliente.php?esc='.$pes);
 					break;
 				
@@ -22,16 +23,10 @@
 					break;
 			}
 
-			echo "Selecionado: ".$pes;
+			#echo "Selecionado: ".$pes;
 			break;
 			$count++;
-		}
-
-
-		
-
-
-	
+		}	
 
 	} catch(PDOException $e) {
 
@@ -43,19 +38,3 @@
 
 ?>
 
-<!-- 
-$pes=$_POST['pesquisa'];
-
-		switch ($pes) {
-			case 'n':
-				header('Location:cliente.php?esc='.$pes);
-				break;
-			case 'r':
-				header('Location:cliente.php?esc='.$pes);
-				break;
-			
-			default:
-				header('Location:cliente.php?esc='.$pes);
-				break;
-		}
--->
