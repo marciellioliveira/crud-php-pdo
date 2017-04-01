@@ -35,7 +35,7 @@
 
 	} catch(PDOException $e) {
 
-		header('Location: cliente.php?msg='.$res);
+		header('Location: cliente.php?msg='.$pes);
 
 		echo "Falha na pesquisa. Erro: ".getMessage();
 

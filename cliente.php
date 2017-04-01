@@ -1,6 +1,8 @@
 <?php 
   include 'header.php'; 
   include 'conexao.php';
+
+  
   
 ?>
 
@@ -32,6 +34,8 @@
 
             $pes="pesquisa.php";
 
+
+
             //View Cadastrar = v_cad.php
             include 'v_cad.php';
 
@@ -42,9 +46,7 @@
 
               $idEscolhido = $_GET['esc'];
 
-
                $dados=$conn->query("SELECT * FROM clientes"); 
-              #$dados=$conn->query("SELECT * FROM clientes WHERE id=".$idEscolhido); 
 
               foreach ($dados as $linha) {
 
@@ -68,11 +70,11 @@
                
               } else {
                # echo "false";
-              } #esse else fecha o strpos
-
+              } #esse else fecha o strpos do visualizar
 
             //View Alterar= v_alt.php
             include 'v_alt.php';
+        
 
             //View Deletar = v_del.php
             include 'v_del.php';
