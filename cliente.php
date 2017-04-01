@@ -1,6 +1,12 @@
-<?php include 'header.php'; ?>
+<?php 
+  include 'header.php'; 
+  include 'conexao.php';
+  
+?>
 
 <div class="jumbotron">
+
+
   		
   		<div class="container">
   			
@@ -23,7 +29,7 @@
 			  <div class="col-sm-4">
 
           <?php
-            
+
             $pes="pesquisa.php";
 
             //View Cadastrar = v_cad.php
@@ -31,6 +37,34 @@
 
             //View Visualizar = v_vis.php
             include 'v_vis.php';
+
+             if(strpos($_SERVER['REQUEST_URI'], '?')) {
+                
+              $idEscolhido = $_GET['esc'];
+              $dados=$conn->query("SELECT * FROM clientes WHERE id=".$idEscolhido); 
+
+              
+              foreach ($dados as $linha) {
+                $nomeBD=$linha['nome'];
+                $rgBD=$linha['rg'];
+                $sexoBD=$linha['sexo'];
+                $est_civilBD=$linha['estado_civil'];
+              }
+
+              if(($sexoBD == 'f') || ($sexoBD == 'F')) {
+                  $sexoCom = "Feminino";
+              } else if(($sexoBD == 'm') || ($sexoBD == 'M')) {
+                 $sexoCom = "Masculino";
+              }
+
+              echo "<h3>Nome: ".$nomeBD."</h3>";
+              echo "<h3>Rg: ".$rgBD."</h3>";
+              echo "<h3>Sexo: ".$sexoCom."</h3>";
+              echo "<h3>Estado Cívil: ".$est_civilBD."</h3>";
+               
+              } else {
+               # echo "false";
+              }
 
             //View Alterar= v_alt.php
             include 'v_alt.php';

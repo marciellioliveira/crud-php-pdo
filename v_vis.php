@@ -1,8 +1,9 @@
 <?php
 
-	$vis="visualizar.php";
+	$vis="visualizar.php";	
 
 	include 'conexao.php';
+	$dados=$conn->query("SELECT * FROM clientes");  
 
 	if(isset($_POST['visualizar'])) {
               echo "<h4>Visualizar</h4>";
@@ -13,29 +14,20 @@
                    <input name="teste" class="hidden"> 
                 </div>      
                   <div class="form-group">                   
-                    <h5 for="sel1">Pesquisar por:</h5>
+                    <h5 for="sel1">Escolha:</h5>
                     <select class="form-control" id="sel1" name="pesquisa">
-                      <option value="" disabled selected>Escolha</option>
-                      <option value="n">Nome</option>
-                      <option value="r">Rg</option>
-                    </select>
+                      <option value="" disabled selected>Escolha</option>';
+                     		foreach($dados as $linha)
+						    {
+						    	$idCons=$linha['id'];
+						    	$nomeCons=$linha['nome'];
+						    	echo '<option value="'.$idCons.'">'.$nomeCons.'</option>';					    	
+							}						
+
+	           echo '</select>
                   </div>                             
-                  <button type="submit" class="btn btn-default">Cadastrar</button>
-                  </form>           
-              ';
+                  <button type="submit" class="btn btn-default">Visualizar</button>
+                  </form>  ';                      
 	}
-
-	 if(strpos($_SERVER['REQUEST_URI'], '?')) {
-                
-        $resultado = $_GET['esc'];
-
-       	 if($resultado == "n") {
-           echo "<h5>Pesquisar por nome</h5>";
-         } else if($resultado = "r") {
-    	  	echo "<h5>Pesquisar por rg</h5>";
-         }
-        } else {
-         # echo "false";
-        }
 
 ?>
