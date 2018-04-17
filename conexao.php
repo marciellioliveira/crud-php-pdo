@@ -1,18 +1,24 @@
 <?php
 
+	//Faz a conexão com o BD
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "crud_php";
+
 	try {
+		
+		$con = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$conn = new PDO('mysql:host=127.0.0.1;port=3306;dbname=crudphp','root', '');
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-	#echo "Conexão ok";
+		echo "Conectado!";
 
 
-	} catch(PDOException $e) {
+	} catch (PDOException $e) {
 
-		echo "ERROR: " . $e->getMessage();
-
+		echo "Falha na conexão: ".$e->getMessage();
+		
 	}
-
 
 ?>

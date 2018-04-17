@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Abr-2017 às 17:30
--- Versão do servidor: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Generation Time: Apr 18, 2018 at 12:28 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,21 +19,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crudphp`
+-- Database: `crud_php`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Table structure for table `cliente`
 --
 
-CREATE TABLE `clientes` (
+CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
-  `nome` varchar(200) NOT NULL,
-  `rg` varchar(9) NOT NULL,
-  `sexo` varchar(1) NOT NULL,
-  `estado_civil` varchar(20) NOT NULL
+  `nome` varchar(100) NOT NULL,
+  `sobrenome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,9 +41,9 @@ CREATE TABLE `clientes` (
 --
 
 --
--- Indexes for table `clientes`
+-- Indexes for table `cliente`
 --
-ALTER TABLE `clientes`
+ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -49,10 +51,11 @@ ALTER TABLE `clientes`
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT for table `cliente`
 --
-ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
