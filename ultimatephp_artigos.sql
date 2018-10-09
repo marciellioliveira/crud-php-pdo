@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2018 at 12:28 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Oct 09, 2018 at 06:47 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,31 +19,31 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crud_php`
+-- Database: `ultimatephp_artigos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `sobrenome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` enum('m','f') COLLATE utf8_unicode_ci NOT NULL,
+  `birthdate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `cliente`
+-- Indexes for table `users`
 --
-ALTER TABLE `cliente`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,10 +51,11 @@ ALTER TABLE `cliente`
 --
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
